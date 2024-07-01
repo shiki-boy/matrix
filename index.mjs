@@ -38,8 +38,9 @@ base_image.onload = function () {
     let w = width / imgw,
         h = height / imgh
 
-    for (let i = 0; i < imgw; i++) {
-        for (let j = 0; j < imgh; j++) {
+    for (let j = 0; j < imgh; j++) {
+        let row = ""
+        for (let i = 0; i < imgw; i++) {
             // let pi = i * (imageData.width * 4) + j * 4;
             let pi = (i + j * imgw) * 4
 
@@ -50,8 +51,14 @@ base_image.onload = function () {
 
             // square(ctx, i * w, j * h, w, val);
             let char = density[getIndex(val)]
-            text(ctx, char, i * w + w / 2, j * h + h / 2, val)
+            // text(ctx, char, i * w + w / 2, j * h + h / 2, val)
+            if (char === " ") {
+                row += "&nbsp;"
+            } else {
+                row += char
+            }
         }
+        createDiv(row)
     }
 }
 
@@ -72,4 +79,10 @@ function text(ctx, v, x, y, fill) {
     ctx.textAlign = "center"
     ctx.textBaseline = "middle"
     ctx.fillText(v, x, y)
+}
+
+function createDiv(t) {
+    const div = document.createElement("div")
+    document.body.appendChild(div)
+    div.innerHTML = t
 }
