@@ -1,29 +1,43 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>JavaScript Sandbox</title>
-    <meta charset="UTF-8" />
-  </head>
+    <head>
+        <title>JavaScript Sandbox</title>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+    </head>
 
-  <style>
-    body {
-        background-color: black;
-        font-family: 'Courier';
-        color: #00ff00;
-        font-size: 12pt;
-        line-height: 10pt;
-    }
-  </style>
+    <style>
+        body {
+            background-color: black;
+            font-family: "Courier";
+            color: #00ff00;
+            
+        }
+        @media screen and (max-width: 600px) {
+            body {
+                font-size: 10pt;
+                line-height: 8pt;
 
-  <body>
-    <canvas
-      width="800"
-      height="450"
-      style="background-color: black"
-    ></canvas>
+            }
+        }
 
-    <!-- <video autoplay></video> -->
+        @media screen and (min-width: 600px) {
+            body {
+                font-size: 12pt;
+                line-height: 10pt;
+            }
+        }
+    </style>
 
-    <script src="./index.mjs" type="module"></script>
-  </body>
+    <body>
+        <canvas
+            width="800"
+            height="450"
+            style="background-color: black"
+        ></canvas>
+
+        <!-- <video autoplay></video> -->
+
+        <script src="./index.mjs" type="module"></script>
+    </body>
 </html>

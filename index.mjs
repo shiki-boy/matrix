@@ -67,7 +67,7 @@ setTimeout(() => {
     draw()
 }, 2000)
 
-const density = ' _.,-=+:;cba!?0123456789$W#@Ñ'
+const density = '          _.,-=+:;cba!?0123456789$W#@Ñ'
 // const density = "Ñ@#W$9876543210?!abc;:+=-,._ "
 
 function getIndex(v) {
