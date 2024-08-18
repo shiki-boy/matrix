@@ -4,6 +4,10 @@
         <title>JavaScript Sandbox</title>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link
+            rel="stylesheet"
+            href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0"
+        />
     </head>
 
     <style>
@@ -11,7 +15,6 @@
             background-color: black;
             font-family: "Courier";
             color: #00ff00;
-            
         }
         @media screen and (max-width: 600px) {
             body {
@@ -29,6 +32,18 @@
                 line-height: 10pt;
             }
         }
+
+        .btn-container {
+            position: absolute;
+            bottom: 10px;
+            display: flex;
+            gap: 16px;
+        }
+
+        button {
+            border-radius: 50%;
+            padding: 2px;
+        }
     </style>
 
     <body>
@@ -37,6 +52,24 @@
             height="450"
             style="background-color: black"
         ></canvas>
+
+        <div class="btn-container">
+            <button id="invert-btn">
+                <span class="material-symbols-outlined"> invert_colors </span>
+            </button>
+
+            <button id="reverse-btn">
+                <span class="material-symbols-outlined">
+                    flip_camera_android
+                </span>
+            </button>
+
+            <button id="hd-btn">
+                <span class="material-symbols-outlined">
+                    <span class="material-symbols-outlined"> hd </span>
+                </span>
+            </button>
+        </div>
 
         <!-- <video autoplay></video> -->
 

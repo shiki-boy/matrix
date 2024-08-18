@@ -15,12 +15,13 @@ const width = 800,
 const div = document.createElement("div")
 document.body.appendChild(div)
 
+let density = '          _.,-=+:;cba!?0123456789$W#@Ñ'
+
 let video = document.createElement("video")
 video.autoplay = "true"
 video.height = 48
 video.width = 48
-
-const stream = await navigator.mediaDevices.getUserMedia({
+let stream = await navigator.mediaDevices.getUserMedia({
     video: true,
     audio: false,
 })
@@ -67,7 +68,6 @@ setTimeout(() => {
     draw()
 }, 2000)
 
-const density = '          _.,-=+:;cba!?0123456789$W#@Ñ'
 // const density = "Ñ@#W$9876543210?!abc;:+=-,._ "
 
 function getIndex(v) {
@@ -141,3 +141,28 @@ function createDiv(t) {
     document.body.appendChild(div)
     div.innerHTML = t
 }
+
+document.querySelector('#invert-btn').addEventListener("click", () => {
+    density = density.split("").reverse().join("")
+})
+
+document.querySelector('#reverse-btn').addEventListener("click", async () => {
+    stream.getTracks().forEach(track => {
+        track.stop();
+    });
+    
+    stream = await navigator.mediaDevices.getUserMedia({
+        video: {
+            facingMode: {
+                exact: facingMode === 'user' ? "environment" : "user"
+            }
+        },
+        audio: false,
+    })
+    
+    video.srcObject = stream
+})
+
+document.querySelector('#hd-btn').addEventListener("click", () => {
+    density = density === '         .:░▒▓█' ? '          _.,-=+:;cba!?0123456789$W#@Ñ' : '         .:░▒▓█'
+})
