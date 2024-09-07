@@ -11,7 +11,7 @@ ctx.imageSmoothingEnabled = false
 let img = "./rk-48.jpg"
 const width = 800,
     height = 450
-
+let facingMode = 'user'
 const div = document.createElement("div")
 document.body.appendChild(div)
 
@@ -150,11 +150,11 @@ document.querySelector('#reverse-btn').addEventListener("click", async () => {
     stream.getTracks().forEach(track => {
         track.stop();
     });
-    
+    facingMode = facingMode === 'user' ? "environment" : "user"
     stream = await navigator.mediaDevices.getUserMedia({
         video: {
             facingMode: {
-                exact: facingMode === 'user' ? "environment" : "user"
+                exact: facingMode
             }
         },
         audio: false,
